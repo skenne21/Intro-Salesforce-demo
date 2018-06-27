@@ -1,0 +1,17 @@
+{
+    "projectName": "Demo",
+    "username": "skenne21@gmail.com",
+    "id": "10545600-7423-11e8-ba17-1f1020a3d7ca",
+    "namespace": "",
+    "orgType": "developer",
+    "loginUrl": "https://login.salesforce.com/",
+    "instanceUrl": "https://na72.salesforce.com",
+    "workspace": "/Users/sabrinamae/Documents",
+    "subscription": [
+        "ApexClass",
+        "ApexComponent",
+        "ApexPage",
+        "ApexTrigger",
+        "StaticResource"
+    ]
+}

@@ -1,0 +1,73 @@
+<apex:page showHeader="false" sidebar="false" controller="parent_finder_controller">
+
+    <h1>Hello</h1>
+    <apex:form id="main_form">
+        <h1>FIND YOUR SELF SOME CHILDERN!!!</h1>
+        <h2> Choice What you are</h2>
+        <apex:outputPanel rendered="{!state='start'}">
+          <apex:commandButton reRender="main_form" value="Parent" action="{!new_parent}" />
+          <apex:commandButton reRender="main_form" value="Child" action="{!new_child}"/>
+          <apex:outputLink value="{!$page.viewParents}" id="link">View Parents</apex:outputLink>
+         
+        </apex:outputPanel>
+     
+
+      
+        <apex:outputPanel rendered="{!state='parent'}">
+          <ul>
+            <label>Your Name</label>
+              <apex:inputField value="{!parent.name}"/>
+            <label>Your email</label>
+              <apex:inputField value="{!parent.Email__c}"/>
+            <label>Your Password</label>
+              <apex:inputField value="{!parent.password__c}"/>
+
+            <label> Type of Candy You Have? </label>
+              <apex:inputField value="{!parent.Candy__c}"/>
+            <label>Time of Bedtime?</label>
+              <apex:inputField value="{!parent.Bedtime__c}"/>
+            <label>Number of Siblings Kid will have?</label>
+              <apex:inputField value="{!parent.Siblings__c}"/>
+            <label>Can Child have Video Games?</label>
+              <apex:inputField value="{!parent.Video_Games__c}"/>
+          </ul>
+          <apex:commandButton value="Save" action="{!insertFormParent}" reRender="main_form"/>
+        </apex:outputPanel>
+     
+
+      
+        <apex:outputPanel rendered="{!state='child'}">
+          <ul>
+            <label>Your Name</label>
+              <apex:inputField value="{!child.name}"/>
+            <label>Your Email</label>
+              <apex:inputField value="{!child.Email__c}"/>
+            <label>Your Password</label>
+              <apex:inputField value="{!child.password__c}"/>
+            <label> How Old Are You? </label>
+              <apex:inputField value="{!child.Age__c}"/>
+            <label>Your Hair Color</label>
+              <apex:inputField value="{!child.Hair_Color__c}"/>
+            <label> Type of Candy You Have? </label>
+              <apex:inputField value="{!child.Candy_perfered__c}"/>
+            <label>Time of Bedtime?</label>
+              <apex:inputField value="{!child.Bedtime_perfered__c}"/>
+            <label>What is the Min Number of Siblings?</label>
+              <apex:inputField value="{!child.min_Number_of_Siblings__c}"/>
+            <label>What is the Min Number of Siblings?</label>
+              <apex:inputField value="{!child.Max_number__c}"/>
+            <label>Can Child have Video Games?</label>
+              <apex:inputField value="{!child.Video_Games__c}"/>
+          </ul>
+          <apex:commandButton value="Save" action="{!insertFormChild}" reRender="main_form" />
+        </apex:outputPanel>
+      
+      
+
+        <apex:outputPanel rendered="{!state='finished'}">
+          <h3>Thank you {! if (parent.name = null, child.name, parent.name) }, for submitting your {! if (parent.name = null, 'child', 'parent') } information!</h3>
+        </apex:outputPanel>
+     
+    </apex:form>
+    <footer>{!debug}</footer>
+</apex:page>

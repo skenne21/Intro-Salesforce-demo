@@ -1,0 +1,32 @@
+<apex:component controller='authorizeDotNet'>
+  <apex:attribute name="record_id" description="id of the object starting the order" type="String" required="true"/>
+  <apex:attribute name="description" description="CC payment" type="String" required="true"/>
+
+  <apex:outputPanel >
+    <ul>
+      <label>Your First Name</label>
+        <apex:input value="{!first_name}"/>
+      <label>Your Last Name</label>
+        <apex:input value="{!last_name}"/>
+      <label>Your email</label>
+        <apex:input value="{!email}"/>
+      <label> Street Address </label>
+        <apex:input value="{!street}"/>
+      <label>Zipcode</label>
+        <apex:input value="{!zipcode}"/>
+      <label> CC Card Number</label>
+        <apex:input type='number' value="{!cc_number}"/>
+      <label>Exp Month</label>
+        <apex:selectList size="1"  value="{!exp_month}">
+          <apex:selectOptions value="{!exp_monthOptions}"/>
+        </apex:selectList>
+      <label>Exp Year</label>
+        <apex:selectList size="1"  value="{!exp_year}">
+          <apex:selectOptions value="{!exp_yearOptions}"/>
+        </apex:selectList>
+      <label>CCV Number</label>
+        <apex:input type='number' value="{!ccv}"/>
+    </ul>
+    <apex:commandButton value="Submit Payment"/>
+  </apex:outputPanel>
+</apex:component>
